@@ -35,6 +35,6 @@ fi
   cp deps/$2$3/* target/$TARGET/lib/
 }
 
-updateDependency 'https://github.com/iron/staticfile.git' 'staticfile' "/target/$TARGET/lib"
 updateDependency 'https://github.com/iron/iron.git' 'iron' "/target/$TARGET/lib"
+updateDependency 'https://github.com/iron/staticfile.git' 'staticfile' "/target/$TARGET/lib"
 
