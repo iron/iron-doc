@@ -1,0 +1,7 @@
+#!/bin/sh
+
+rm -rf $1
+git clone "https://github.com/iron/$1.git"
+cd $1
+cargo build
+rustdoc -L target/deps -o ../doc src/lib.rs
