@@ -7,22 +7,22 @@ make nightly-install
 # Generate Iron documentation
 mkdir -p iron
 cd iron
-updateIronDoc iron
+./../updateIronDoc iron
 cd ..
 
 # Generate core documentation
 mkdir -p core
 cd core
-updateIronDoc iron
-updateIronDoc urlencoded
-updateIronDoc logger
-updateIronDoc router
-updateIronDoc mount
-updateIronDoc persistent
-updateIronDoc static-file
-updateIronDoc session
-updateIronDoc cookie
-updateIronDoc body-parser
+./../updateIronDoc iron
+./../updateIronDoc urlencoded
+./../updateIronDoc logger
+./../updateIronDoc router
+./../updateIronDoc mount
+./../updateIronDoc persistent
+./../updateIronDoc static-file
+./../updateIronDoc session
+./../updateIronDoc cookie
+./../updateIronDoc body-parser
 cd ..
 
 # Serve documentation

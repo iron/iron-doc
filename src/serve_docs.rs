@@ -17,5 +17,5 @@ fn main() {
     server.chain.link(Static::new(Path::new("iron/doc/")));
     // Serve Iron's index.html
     server.chain.link(Static::new(Path::new("iron/doc/iron/")));
-    server.listen(Ipv4Addr(127, 0, 0, 1), 3000);
+    server.listen(Ipv4Addr(127, 0, 0, 1), 80);
 }
