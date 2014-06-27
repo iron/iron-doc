@@ -8,6 +8,7 @@ use staticfile::Static;
 use mount::Mount;
 
 fn main() {
+    println!("Serving..")
     let mut server: ServerT = Iron::new();
     // Serve core documentation
     server.chain.link(Mount::new("/core", Static::new(Path::new("core/doc/"))));
@@ -17,5 +18,5 @@ fn main() {
     server.chain.link(Static::new(Path::new("iron/doc/")));
     // Serve Iron's index.html
     server.chain.link(Static::new(Path::new("iron/doc/iron/")));
-    server.listen(Ipv4Addr(127, 0, 0, 1), 80);
+    server.listen(Ipv4Addr(100, 82, 34, 85), 80);
 }
