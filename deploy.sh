@@ -1,31 +1,16 @@
-updateIron() {
-  rm -rf $1
-  git clone "https://github.com/reem/$1.git"
-  cd $1
-  cargo build -uv
-  rustdoc -L target/deps -o ../doc src/lib.rs
-  cd ..
-}
-
 updateIronDoc() {
   rm -rf $1
   git clone "https://github.com/iron/$1.git"
   cd $1
-  cargo build -v
-  rustdoc -L target/deps -o ../doc src/lib.rs
+  cargo build -uv
+  rustdoc -L target/deps -o ../doc src/lib.rs --html-in-header ../head.html --html-before-content ../header.html --html-after-content ../footer.html
   cd ..
 }
 
-# Generate Iron documentation
-mkdir -p iron
-cd iron
-updateIron iron
-cd ..
-
-# Generate core documentation
+# Generate documentation
 mkdir -p ./core
 cd core
-updateIron iron
+updateIronDoc iron
 updateIronDoc urlencoded
 updateIronDoc logger
 updateIronDoc router
@@ -35,7 +20,6 @@ updateIronDoc static-file
 updateIronDoc session
 updateIronDoc cookie
 updateIronDoc body-parser
-pwd
 cd ..
 
 # Serve documentation
