@@ -1,6 +1,6 @@
 updateIronDoc() {
   cd $1
-  rustdoc -L target/deps -o ../doc src/lib.rs
+  rustdoc -L target/deps -o ../doc src/lib.rs --html-in-header ../../head.html --html-before-content ../../header.html --html-after-content ../../footer.html
   cd ..
 }
 

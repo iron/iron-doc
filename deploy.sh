@@ -2,8 +2,7 @@ updateIronDoc() {
   rm -rf $1
   git clone "https://github.com/iron/$1.git"
   cd $1
-  cargo build -uv
-  rustdoc -L target/deps -o ../doc src/lib.rs --html-in-header ../head.html --html-before-content ../header.html --html-after-content ../footer.html
+  rustdoc -L target/deps -o ../doc src/lib.rs --html-in-header ../../head.html --html-before-content ../../header.html --html-after-content ../../footer.html
   cd ..
 }
 
