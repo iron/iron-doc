@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Update Rust
 make nightly-uninstall
 make nightly-install
