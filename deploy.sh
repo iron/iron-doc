@@ -1,3 +1,7 @@
+#!/bin/sh
+
+set -eu
+
 # Update Rust
 make nightly-uninstall
 make nightly-install
@@ -6,24 +10,16 @@ make nightly-install
 
 # Generate Iron documentation
 mkdir -p iron
-cd iron
-./../updateIronDoc iron
-cd ..
+(cd iron; ./../updateIronDoc iron)
 
 # Generate core documentation
 mkdir -p core
-cd core
-./../updateIronDoc iron
-./../updateIronDoc urlencoded
-./../updateIronDoc logger
-./../updateIronDoc router
-./../updateIronDoc mount
-./../updateIronDoc persistent
-./../updateIronDoc static-file
-./../updateIronDoc session
-./../updateIronDoc cookie
-./../updateIronDoc body-parser
-cd ..
+
+TARGETS="iron urlencoded logger router mount persistent static-file session cookie body-parser"
+
+for target in $TARGETS; do
+	(cd core; ./../updateIronDoc $target)
+done
 
 # Serve documentation
 cargo build -u
